@@ -5,9 +5,21 @@
   <xacro:arg name="fixed" default="false"/>
   <xacro:arg name="robot_ns" default=""/>
 
-  <xacro:include filename="$(find add_lidar)/urdf/macros.xacro"/>
+  <xacro:include filename="$(find leo_description)/urdf/macros.xacro"/>
+  <xacro:include filename="$(find hector_sensors_description)/urdf/hokuyo_utm30lx.urdf.xacro"/>
 
   <xacro:leo_sim robot_ns="$(arg robot_ns)"
                  fixed="$(arg fixed)"/>
+
+  <xacro:hokuyo_utm30lx
+      name="hokuyo_laser"
+      parent="base_link"
+      ros_topic="sensor_msgs/LaserScan"
+      update_rate="10"
+      ray_count="500"
+      min_angle="-180"
+      max_angle="+180">
+    <origin xyz="0 0 +0.05" rpy="0 0 0" />
+	</xacro:hokuyo_utm30lx>
 
 </robot>
