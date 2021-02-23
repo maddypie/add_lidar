@@ -7,7 +7,7 @@
   <include file="$(find add_lidar)/launch/spawn_model.launch"
            pass_all_args="true"/>
 
-  <include file="$(find add_lidar)/launch/spawn_controllers.launch">
+  <include file="$(find leo_gazebo)/launch/spawn_controllers.launch">
     <arg name="robot_ns" value="$(arg robot_ns)"/>
   </include>
 
